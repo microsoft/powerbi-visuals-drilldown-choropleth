@@ -1,0 +1,13 @@
+os:
+  - linux
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "7"
+install:
+  - npm install
+script:
+  - npm run package
+notifications:
+  email: false
