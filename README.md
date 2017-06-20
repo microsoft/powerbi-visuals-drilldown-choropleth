@@ -1,5 +1,5 @@
 # Drilldown choropleth
-[![Build Status](https://github.com/Microsoft/powerbi-visuals-drilldown-choropleth.svg?branch=master)](https://github.com/Microsoft/powerbi-visuals-drilldown-choropleth)
+[![Build Status](https://travis-ci.org/Microsoft/powerbi-visuals-drilldown-choropleth.svg?branch=master)](https://travis-ci.org/Microsoft/powerbi-visuals-drilldown-choropleth)
 
 > Displays a hierarchical map set with each location filled in a color from specified values
 
