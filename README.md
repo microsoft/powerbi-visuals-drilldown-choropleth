@@ -23,6 +23,8 @@ You can alternately set a Legend property to control the color of each area on t
 
 Note that you’ll need to put your topojson-formatted maps on a web server; the Tips page of the sample reports have guidance about how to do that.
 
+This visual was built in conjunction with our partner [Gramener](http://gramener.com).
+
 # Contributing
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
