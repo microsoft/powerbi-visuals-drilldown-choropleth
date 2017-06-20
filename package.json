@@ -1,0 +1,37 @@
+{
+  "name": "powerbi-visuals-drilldown-choropleth",
+  "version": "1.0.0",
+  "description": "Chorpleth works for multiple level of maps which is maximum set to 3 currently.By default it has few maps for more than 1 level of map hirarchy, user can provide their own maps to render in TopoJSON format.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/powerbi-visuals-drilldown-choropleth.git"
+  },
+  "keywords": [
+    "powerbi-visuals"
+  ],
+  "author": {
+    "name": "Microsoft",
+    "email": "pbicvsupport@microsoft.com"
+  },
+  "scripts": {
+    "postinstall": "pbiviz update 1.6.0",
+    "pbiviz": "pbiviz",
+    "start": "pbiviz start",
+    "package": "pbiviz package"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Microsoft/powerbi-visuals-drilldown-choropleth/issues"
+  },
+  "homepage": "https://github.com/Microsoft/powerbi-visuals-drilldown-choropleth#readme",
+  "dependencies": {
+    "@types/d3": "3.5.36",
+    "@types/jquery": "2.0.43",
+    "@types/lodash": "4.14.52",
+    "d3": "3.5.17",
+    "lodash": "4.17.4",
+    "powerbi-visuals-tools": "1.7.0",
+    "powerbi-visuals-utils-chartutils": "0.3.0",
+    "topojson": "2.2.0"
+  }
+}
