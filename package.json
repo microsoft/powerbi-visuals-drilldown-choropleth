@@ -14,7 +14,7 @@
     "email": "pbicvsupport@microsoft.com"
   },
   "scripts": {
-    "postinstall": "pbiviz update 1.6.0",
+    "postinstall": "pbiviz update 1.7.0",
     "pbiviz": "pbiviz",
     "start": "pbiviz start",
     "package": "pbiviz package"
