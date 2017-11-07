@@ -832,7 +832,7 @@ module powerbi.extensibility.visual {
                 tooltipdata.forEach((t) => {
                     var temp = {}
                     temp['displayName'] = t[0]
-                    temp['value'] = t[1]
+                    temp['value'] = `${t[1]}`
                     tooltips.push(temp)
                 })
             } else {

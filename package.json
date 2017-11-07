@@ -1,6 +1,6 @@
 {
   "name": "powerbi-visuals-drilldown-choropleth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chorpleth works for multiple level of maps which is maximum set to 3 currently.By default it has few maps for more than 1 level of map hirarchy, user can provide their own maps to render in TopoJSON format.",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "email": "pbicvsupport@microsoft.com"
   },
   "scripts": {
-    "postinstall": "pbiviz update 1.6.0",
+    "postinstall": "pbiviz update 1.7.0",
     "pbiviz": "pbiviz",
     "start": "pbiviz start",
     "package": "pbiviz package"
