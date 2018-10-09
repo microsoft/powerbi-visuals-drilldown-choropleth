@@ -32,6 +32,7 @@
     "lodash": "4.17.4",
     "powerbi-visuals-tools": "1.7.0",
     "powerbi-visuals-utils-chartutils": "0.3.0",
+    "powerbi-visuals-utils-formattingutils": "^3.0.2",
     "topojson": "2.2.0"
   }
 }
