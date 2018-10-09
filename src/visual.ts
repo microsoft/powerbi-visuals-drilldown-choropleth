@@ -81,12 +81,12 @@ module powerbi.extensibility.visual {
             .attr('transform', "translate(" + x + "," + y + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
     }
 
-    function getformattedValues(dataView, row) {
-        var formatted_values = []
+    function getformattedValues(dataView: any, row: any) {
+        let formatted_values = []
         let valueFormatter: IValueFormatter;
 
         _.each(row, function(v, i){
-            var dmeta = dataView.metadata.columns[i]
+            let dmeta = dataView.metadata.columns[i]
             valueFormatter = ValueFormatter.create({
                 format: ValueFormatter.getFormatStringByColumn(dmeta),
             });
