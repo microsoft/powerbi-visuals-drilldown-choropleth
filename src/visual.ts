@@ -34,6 +34,12 @@ module powerbi.extensibility.visual {
     import createLegend = powerbi.extensibility.utils.chart.legend.createLegend;
     import LegendPosition = powerbi.extensibility.utils.chart.legend.LegendPosition;
 
+    // powerbi.extensibility.utils.formatting
+    import ValueFormatter = powerbi.extensibility.utils.formatting.valueFormatter;
+    import TextProperties = powerbi.extensibility.utils.formatting.TextProperties;
+    import IValueFormatter = powerbi.extensibility.utils.formatting.IValueFormatter;
+    import textMeasurementService = powerbi.extensibility.utils.formatting.textMeasurementService;
+
     /**
      * Interface for viewmodel.
      *
@@ -60,6 +66,7 @@ module powerbi.extensibility.visual {
         legend_value: any;
         legend_color: any
         rowdata: any;
+        formatted_value: any;
     };
 
     function contract(path, options, m) {
@@ -72,6 +79,21 @@ module powerbi.extensibility.visual {
         m.transition()
             .duration(450)
             .attr('transform', "translate(" + x + "," + y + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+    }
+
+    function getformattedValues(dataView: any, row: any) {
+        let formatted_values = []
+        let valueFormatter: IValueFormatter;
+
+        _.each(row, function(v, i){
+            let dmeta = dataView.metadata.columns[i]
+            valueFormatter = ValueFormatter.create({
+                format: ValueFormatter.getFormatStringByColumn(dmeta),
+            });
+            formatted_values.push(valueFormatter.format(v))
+        })
+
+        return formatted_values
     }
 
     /**
@@ -168,6 +190,7 @@ module powerbi.extensibility.visual {
                 Visual.previous_transform = "translate(" + translate + ")scale(" + scale + ")"
             }
         }
+
         private visualTransform(options: VisualUpdateOptions, host: IVisualHost, cur_clicked) {
             let dataViews = options.dataViews;
             let categorical = dataViews[0].categorical;
@@ -243,11 +266,11 @@ module powerbi.extensibility.visual {
             let checkhighlight = true
             let highlightvalue = categorical.values[0].highlights;
 
-
             for (let i = 0, len = Math.max(categories[category_length].values.length, values.values.length); i < len; i++) {
                 if (highlightvalue != undefined) {
                     checkhighlight = highlightvalue[i] !== null ? true : false;
                 }
+
                 let legend = ldata.length !== 0 ? ldata.filter(ld => ld.label === temp_legend[i]) : null
                 categoryDataPoints.push({
                     category: categories[category_length].values[i] + '',
@@ -258,7 +281,8 @@ module powerbi.extensibility.visual {
                     hashighlight: checkhighlight,
                     legend_value: legend != null ? legend[0].value : null,
                     legend_color: legend != null ? legend[0].color : null,
-                    rowdata: tabledata[i]
+                    rowdata: tabledata[i],
+                    formatted_value: getformattedValues(dataViews[0], tabledata[i])
                 });
             }
 
@@ -828,7 +852,7 @@ module powerbi.extensibility.visual {
             var zip = rows => rows[0].map((_, c) => rows.map(row => row[c]))
             var tooltips = []
             if (value.data != null) {
-                var tooltipdata = zip([cols, value.data.rowdata])
+                var tooltipdata = zip([cols, value.data.formatted_value])
                 tooltipdata.forEach((t) => {
                     var temp = {}
                     temp['displayName'] = t[0]
