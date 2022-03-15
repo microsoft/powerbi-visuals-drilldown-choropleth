@@ -29,7 +29,7 @@
     "@types/jquery": "2.0.43",
     "@types/lodash": "4.14.52",
     "d3": "3.5.17",
-    "lodash": "4.17.4",
+    "lodash": "4.17.21",
     "powerbi-visuals-tools": "1.7.0",
     "powerbi-visuals-utils-chartutils": "0.3.0",
     "powerbi-visuals-utils-formattingutils": "^3.0.2",
